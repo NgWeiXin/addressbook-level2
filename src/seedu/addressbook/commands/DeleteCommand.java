@@ -2,8 +2,9 @@ package seedu.addressbook.commands;
 
 import seedu.addressbook.common.Messages;
 import seedu.addressbook.data.person.ReadOnlyPerson;
+import seedu.addressbook.data.person.UniquePersonList;
 import seedu.addressbook.data.person.UniquePersonList.PersonNotFoundException;
-
+import seedu.addressbook.commands.UndoDeleteCommand;
 
 /**
  * Deletes a person identified using it's last displayed index from the address book.
@@ -29,6 +30,7 @@ public class DeleteCommand extends Command {
     public CommandResult execute() {
         try {
             final ReadOnlyPerson target = getTargetPerson();
+            UndoDeleteCommand.replaceLastDeletedPerson(target);
             addressBook.removePerson(target);
             return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, target));
 
