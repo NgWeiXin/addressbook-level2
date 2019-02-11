@@ -111,6 +111,16 @@ Deletes the 2nd person in the address book.
 `delete 1` +
 Deletes the 1st person in the results of the `find` command.
 
+== Undo-ing previous delete: `undoDelete`
+
+Undo the latest delete command.
+Format: `undoDelete`
+
+***
+Adds back the person that was being recently deleted.
+Person will have a different index number.
+***
+
 == View non-private details of a person : `view`
 
 Displays the non-private details of the specified person. +
